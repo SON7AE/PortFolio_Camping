@@ -33,8 +33,7 @@ export default {
     align-items: flex-start;
 
     width: 100%;
-
-    gap: 32px;
+    height: 100%; // 빼야함
 
     &__navigation {
         display: flex;
@@ -58,6 +57,7 @@ export default {
         justify-content: center;
 
         gap: 8px;
+        margin: 48px 0 16px;
 
         &__nickname {
             font-family: 'Y_Spotlight';

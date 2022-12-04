@@ -16,6 +16,6 @@ export default {};
     margin: auto;
 
     border-radius: 32px;
-    background-color: whitesmoke;
+    background-color: rgba(245, 245, 245, 0.393);
 }
 </style>
