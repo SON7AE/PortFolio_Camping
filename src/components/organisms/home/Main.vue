@@ -20,7 +20,9 @@ export default {
     align-items: center;
     justify-content: center;
 
-    width: 100%;
-    height: 100%;
+    width: calc(100% - 80px);
+    height: calc(100% - 80px);
+
+    padding: 40px;
 }
 </style>

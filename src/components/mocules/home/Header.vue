@@ -5,17 +5,77 @@
                 <i class="fa-solid fa-burger"></i>
             </button>
         </div>
+        <div class="header__text-box">
+            <span class="header__text-box__nickname">Hello, Marco</span>
+            <span class="header__text-box__title">
+                Good Morning!
+                <img src="~/assets/images/morning.png" alt="" class="header__text-box__title__image" />
+            </span>
+        </div>
+        <HomeSearch />
     </header>
 </template>
 
 <script>
-export default {};
+import HomeSearch from '~/components/atoms/home/Search.vue';
+
+export default {
+    components: { HomeSearch },
+};
 </script>
 
 <style lang="scss" scoped>
 @import '~/assets/styles/main.scss';
 
 .header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
     width: 100%;
+
+    gap: 32px;
+
+    &__navigation {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        &__button {
+            outline: 0;
+            border: 0;
+
+            font-size: 2em;
+            background: transparent;
+
+            cursor: pointer;
+        }
+    }
+    &__text-box {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+
+        gap: 8px;
+
+        &__nickname {
+            font-family: 'Y_Spotlight';
+            font-size: 2rem;
+        }
+        &__title {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+
+            gap: 4px;
+
+            font-family: 'Pretendard-Regular';
+
+            &__image {
+                width: 32px;
+            }
+        }
+    }
 }
 </style>
