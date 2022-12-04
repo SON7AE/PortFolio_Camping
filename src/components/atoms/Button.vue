@@ -1,5 +1,5 @@
 <template>
-    <button :data-theme="theme" class="button">{{ label }}</button>
+    <RouterLink :data-theme="theme" :to="path" class="button">{{ label }}</RouterLink>
 </template>
 
 <script>
@@ -12,6 +12,10 @@ export default {
             default: 'orange',
         },
         label: {
+            type: String,
+            required: false,
+        },
+        path: {
             type: String,
             required: false,
         },
@@ -32,13 +36,15 @@ export default {
 
     width: 100%;
 
-    padding: 12px;
+    padding: 16px 12px;
 
     border-radius: 12px;
 
     font-family: 'Pretendard-Regular';
     font-weight: 700;
     font-size: 1.25em;
+
+    text-decoration: none;
 
     cursor: pointer;
 

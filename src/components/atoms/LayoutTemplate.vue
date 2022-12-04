@@ -16,5 +16,6 @@ export default {};
     margin: auto;
 
     border-radius: 32px;
+    background-color: whitesmoke;
 }
 </style>
