@@ -9,6 +9,8 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
+@import '~/assets/styles/main.scss';
+
 .layout-template {
     width: 390px;
     height: 844px;
@@ -16,6 +18,8 @@ export default {};
     margin: auto;
 
     border-radius: 32px;
-    border: 1px solid rgba(245, 245, 245);
+    border: 1px solid rgb(233, 233, 233);
+
+    background: linear-gradient(white, rgb(248, 248, 248));
 }
 </style>

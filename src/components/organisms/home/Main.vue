@@ -1,14 +1,16 @@
 <template>
     <div class="main">
         <HomeHeader />
+        <HomeFooter />
     </div>
 </template>
 
 <script>
 import HomeHeader from '~/components/mocules/home/Header.vue';
+import HomeFooter from '~/components/atoms/Footer.vue';
 
 export default {
-    components: { HomeHeader },
+    components: { HomeHeader, HomeFooter },
 };
 </script>
 
@@ -17,10 +19,12 @@ export default {
 
 .main {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 
     width: 100%;
+    height: 100%;
 
     padding: 40px;
 }
