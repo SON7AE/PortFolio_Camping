@@ -34,7 +34,6 @@ export default {
     align-items: flex-start;
 
     width: 100%;
-    height: 100%; // 빼야함
 
     &__navigation {
         display: flex;

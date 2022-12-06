@@ -31,7 +31,7 @@ export default {};
     height: 80px;
 
     padding: 0 40px;
-    margin-bottom: -40px;
+    margin: 0 0 -40px -40px;
 
     border-radius: 0 0 32px 32px;
     background-color: $color-white;
