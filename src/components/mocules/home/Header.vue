@@ -3,6 +3,7 @@
         <div class="header__navigation">
             <button class="header__navigation__button">
                 <i class="fa-solid fa-burger"></i>
+                <v-tooltip activator="parent" location="end" class="header__navigation__button__tooltip">아직 추가된 기능이 없습니다.</v-tooltip>
             </button>
         </div>
         <div class="header__text-box">
@@ -48,6 +49,10 @@ export default {
             background: transparent;
 
             cursor: pointer;
+
+            &__tooltip {
+                font-family: 'Pretendard-Regular';
+            }
         }
     }
     &__text-box {

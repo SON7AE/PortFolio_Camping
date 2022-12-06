@@ -4,14 +4,19 @@
             <i class="fa-solid fa-location-dot"></i>
             <input type="text" placeholder="지역을 검색해주세요." class="search__input-box__input" />
         </div>
+        <HomeFilterButton />
     </div>
 </template>
 
 <script>
-export default {};
+import HomeFilterButton from '~/components/atoms/home/FilterButton.vue';
+
+export default {
+    components: { HomeFilterButton },
+};
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" sco FilterButtonped>
 @import '~/assets/styles/main.scss';
 
 .search {
@@ -21,6 +26,8 @@ export default {};
 
     width: 100%;
     height: 50px;
+
+    gap: 16px;
 
     &__input-box {
         display: flex;
