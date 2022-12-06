@@ -14,6 +14,10 @@
                 <img src="~/assets/images/fishing.png" alt="" class="image" />
                 <span class="label">Fishing</span>
             </button>
+            <button class="activity-filter__filter-box__filter">
+                <img src="~/assets/images/swimming.png" alt="" class="image" />
+                <span class="label">Swimming</span>
+            </button>
         </div>
     </div>
 </template>
@@ -32,7 +36,7 @@ export default {};
 
     width: 100%;
 
-    gap: 24px;
+    gap: 16px;
 
     &__title {
         font-family: 'Pretendard-Regular';
@@ -62,9 +66,9 @@ export default {};
             align-items: center;
             justify-content: center;
 
-            width: 100px;
-            min-width: 100px;
-            height: 90px;
+            width: 88px;
+            min-width: 88px;
+            height: 85px;
 
             gap: 4px;
 
@@ -75,7 +79,7 @@ export default {};
     }
 }
 .image {
-    height: 55px;
+    height: 40px;
 }
 .label {
     font-family: 'Pretendard-Regular';

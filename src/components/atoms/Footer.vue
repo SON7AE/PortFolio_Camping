@@ -28,7 +28,7 @@ export default {};
     justify-content: space-between;
 
     width: calc(100% + 80px);
-    height: 80px;
+    height: 68px;
 
     padding: 0 40px;
     margin: 0 0 -40px -40px;
