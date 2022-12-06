@@ -33,6 +33,8 @@ export default {};
     box-shadow: 3px 3px 3px $color-gray;
     background-color: $color-white;
 
+    cursor: pointer;
+
     position: relative;
 
     &__image {
