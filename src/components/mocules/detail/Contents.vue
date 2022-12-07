@@ -4,7 +4,7 @@
         <div class="contents__detail-box">
             <DetailCard v-for="card in cardList" :key="card.label" :card="card" />
         </div>
-        <button class="contents__button">업체 소개</button>
+        <button class="contents__button" @click="openOverlay">업체 소개</button>
     </div>
 </template>
 
