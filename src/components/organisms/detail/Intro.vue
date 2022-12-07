@@ -1,7 +1,7 @@
 <template>
     <div class="intro">
         <LayoutTemplate class="layout">
-            <button class="layout__button">
+            <button class="layout__button" @click="sendEvent">
                 <i class="fa-solid fa-circle-xmark"></i>
             </button>
             <OverlayTextBox class="layout__intro" />
@@ -16,6 +16,15 @@ import OverlayTextBox from '~/components/mocules/detail/overlay/TextBox.vue';
 
 export default {
     components: { LayoutTemplate, DetailIcon, OverlayTextBox },
+    setup(props, context) {
+        const sendEvent = () => {
+            context.emit('close-overlay');
+        };
+
+        return {
+            sendEvent,
+        };
+    },
 };
 </script>
 

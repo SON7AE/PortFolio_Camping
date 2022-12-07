@@ -4,7 +4,7 @@
         <div class="contents__detail-box">
             <DetailCard v-for="card in cardList" :key="card.label" :card="card" />
         </div>
-        <button class="contents__button" @click="openOverlay">업체 소개</button>
+        <button class="contents__button" @click="sendEvent">업체 소개</button>
     </div>
 </template>
 
@@ -14,7 +14,7 @@ import Button from '~/components/atoms/Button.vue';
 
 export default {
     components: { DetailCard, Button },
-    setup() {
+    setup(props, context) {
         const cardList = [
             {
                 label: '위치',
@@ -37,7 +37,10 @@ export default {
                 value: '봄, 여름, 가을, 겨울',
             },
         ];
-        return { cardList };
+        const sendEvent = () => {
+            context.emit('open-overlay');
+        };
+        return { cardList, sendEvent };
     },
 };
 </script>

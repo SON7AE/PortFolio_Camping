@@ -1,7 +1,7 @@
 <template>
     <div class="main">
         <DetailHeader />
-        <DetailContents />
+        <DetailContents @open-overlay="sendEvent" />
     </div>
 </template>
 
@@ -13,6 +13,12 @@ export default {
     components: {
         DetailHeader,
         DetailContents,
+    },
+    setup(props, context) {
+        const sendEvent = () => {
+            context.emit('open-overlay');
+        };
+        return { sendEvent };
     },
 };
 </script>
