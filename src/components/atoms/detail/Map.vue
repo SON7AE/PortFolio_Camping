@@ -11,7 +11,7 @@ export default {};
 
 #map {
     width: 100%;
-    min-height: 250px;
+    height: 300px;
 
     background-color: rgba($color-gray, 0.1);
     border-radius: 24px;

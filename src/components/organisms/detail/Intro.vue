@@ -4,7 +4,7 @@
             <button class="layout__button">
                 <i class="fa-solid fa-circle-xmark"></i>
             </button>
-            <OverlayTextBox />
+            <OverlayTextBox class="layout__intro" />
         </LayoutTemplate>
     </div>
 </template>
@@ -37,7 +37,6 @@ export default {
     justify-content: flex-start;
 
     padding: 16px;
-    gap: 40px;
 
     overflow: scroll;
 
