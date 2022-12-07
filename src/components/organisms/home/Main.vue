@@ -8,8 +8,8 @@
 
 <script>
 import HomeHeader from '~/components/mocules/home/Header.vue';
-import HomeFooter from '~/components/atoms/Footer.vue';
 import HomeContents from '~/components/mocules/home/Contents.vue';
+import HomeFooter from '~/components/atoms/Footer.vue';
 
 export default {
     components: { HomeHeader, HomeContents, HomeFooter },

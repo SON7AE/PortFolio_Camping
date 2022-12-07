@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 import Login from '~/pages/Login';
 import Home from '~/pages/Home';
+import Detail from '~/pages/Detail';
 
 export default createRouter({
     history: createWebHashHistory(),
@@ -14,6 +15,11 @@ export default createRouter({
             path: '/home',
             name: 'Home',
             component: Home,
+        },
+        {
+            path: '/detail',
+            name: 'Detail',
+            component: Detail,
         },
     ],
 });

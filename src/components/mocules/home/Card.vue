@@ -1,5 +1,5 @@
 <template>
-    <div class="card">
+    <RouterLink to="/detail" class="card">
         <i class="fa-solid fa-bookmark bookmark"></i>
         <img src="~/assets/images/Card1.jpg" alt="" class="card__image" />
         <div class="card__text-box">
@@ -9,7 +9,7 @@
                 전남 담양군 봉산면 탄금길 9-26
             </span>
         </div>
-    </div>
+    </RouterLink>
 </template>
 
 <script>
@@ -34,6 +34,8 @@ export default {};
     box-shadow: 3px 3px 3px $color-gray;
     background-color: $color-white;
 
+    text-decoration: none;
+
     cursor: pointer;
 
     position: relative;
@@ -54,6 +56,8 @@ export default {};
         height: 35%;
 
         gap: 12px;
+
+        color: $color-black;
 
         &__title {
             font-family: 'NanumSquareNeo-Variable';
