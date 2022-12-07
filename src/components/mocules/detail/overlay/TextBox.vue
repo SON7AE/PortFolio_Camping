@@ -29,9 +29,9 @@ export default { components: { DetailMap } };
 
     width: 100%;
 
-    border-radius: 24px;
-
     gap: 12px;
+
+    border-radius: 24px;
 
     &__title {
         width: 30%;
@@ -47,10 +47,12 @@ export default { components: { DetailMap } };
         text-align: center;
         color: $color-white;
 
-        margin-top: 28px;
+        margin-top: 16px;
     }
     &__desc {
         width: 100%;
+        height: 330px;
+
         padding: 12px;
 
         background-color: rgba($color-gray, 0.1);
@@ -60,6 +62,15 @@ export default { components: { DetailMap } };
         font-size: 1em;
         line-height: 1.3;
         text-align: justify;
+
+        overflow: scroll;
+
+        -ms-overflow-style: none; /* 인터넷 익스플로러 */
+        scrollbar-width: none; /* 파이어폭스 */
+
+        &::-webkit-scrollbar {
+            display: none; /* 크롬, 사파리, 오페라, 엣지 */
+        }
     }
 }
 </style>

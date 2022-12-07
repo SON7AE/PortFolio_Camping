@@ -4,7 +4,7 @@
             <button class="layout__button" @click="sendEvent">
                 <i class="fa-solid fa-circle-xmark"></i>
             </button>
-            <OverlayTextBox class="layout__intro" />
+            <OverlayTextBox />
         </LayoutTemplate>
     </div>
 </template>
@@ -47,18 +47,11 @@ export default {
 
     padding: 16px;
 
-    overflow: scroll;
-
-    -ms-overflow-style: none; /* 인터넷 익스플로러 */
-    scrollbar-width: none; /* 파이어폭스 */
-
-    &::-webkit-scrollbar {
-        display: none; /* 크롬, 사파리, 오페라, 엣지 */
-    }
-
     &__button {
         outline: none;
         border: 0;
+
+        margin-bottom: 16px;
 
         cursor: pointer;
     }
