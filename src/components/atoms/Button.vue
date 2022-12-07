@@ -52,5 +52,9 @@ export default {
         background-color: $color-orange;
         color: $color-white;
     }
+    &[data-theme='pupple'] {
+        background-color: $color-pupple;
+        color: $color-white;
+    }
 }
 </style>

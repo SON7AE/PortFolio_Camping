@@ -4,14 +4,16 @@
         <div class="contents__detail-box">
             <DetailCard v-for="card in cardList" :key="card.label" :card="card" />
         </div>
+        <button class="contents__button">업체 소개</button>
     </div>
 </template>
 
 <script>
 import DetailCard from '~/components/atoms/detail/Card.vue';
+import Button from '~/components/atoms/Button.vue';
 
 export default {
-    components: { DetailCard },
+    components: { DetailCard, Button },
     setup() {
         const cardList = [
             {
@@ -72,6 +74,31 @@ export default {
         height: 100%;
 
         gap: 24px;
+    }
+    &__button {
+        outline: none;
+        border: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+
+        padding: 16px 12px;
+        margin-top: 12px;
+
+        border-radius: 12px;
+        background-color: $color-pupple;
+        color: $color-white;
+
+        font-family: 'Pretendard-Regular';
+        font-weight: 700;
+        font-size: 1.25em;
+
+        text-decoration: none;
+
+        cursor: pointer;
     }
 }
 </style>
