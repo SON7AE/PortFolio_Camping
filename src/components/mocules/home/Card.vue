@@ -30,6 +30,7 @@ export default {};
     padding: 0 10px;
 
     border-radius: 16px;
+    border: 1px solid rgba($color-gray, 0.1);
     box-shadow: 3px 3px 3px $color-gray;
     background-color: $color-white;
 
