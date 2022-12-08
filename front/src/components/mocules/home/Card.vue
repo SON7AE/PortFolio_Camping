@@ -1,7 +1,7 @@
 <template>
     <RouterLink to="/detail" class="card">
         <i class="fa-solid fa-bookmark bookmark"></i>
-        <img src="~/assets/images/Card1.jpg" alt="" class="card__image" />
+        <img :src="card.sFacilityImageUrl ? card.sFacilityImageUrl : 'src/assets/images/defaultImage.png'" alt="" class="card__image" />
         <div class="card__text-box">
             <span class="card__text-box__title">{{ card.sFacilityName }}</span>
             <span class="card__text-box__location">
@@ -20,6 +20,7 @@ export default {
             required: false,
         },
     },
+    setup() {},
 };
 </script>
 
@@ -73,7 +74,7 @@ export default {
         }
         &__location {
             font-family: 'LeferiPoint-WhiteObliqueA';
-            font-size: 11px;
+            font-size: 11.5px;
 
             i {
                 color: $color-pupple;

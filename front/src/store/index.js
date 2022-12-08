@@ -13,7 +13,12 @@ export const useStore = defineStore('main', {
                 const data = res.data.item;
 
                 this.aHomeCard = data.map((item) => {
-                    const card = { id: item.contentId, sFacilityName: item.facltNm, sFacilityAddress: item.addr1 };
+                    const card = {
+                        id: item.contentId,
+                        sFacilityName: item.facltNm,
+                        sFacilityAddress: item.addr1,
+                        sFacilityImageUrl: item.firstImageUrl,
+                    };
 
                     return card;
                 });
