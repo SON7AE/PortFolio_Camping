@@ -8,7 +8,7 @@
             </span>
             <span class="header__info-box__icon-box">
                 <i class="fa-solid fa-calendar-days"></i>
-                <span class="text">7-3 Apr 2022</span>
+                <span class="text">{{ now }}</span>
             </span>
         </div>
     </header>
@@ -16,9 +16,14 @@
 
 <script>
 import LoginTextBox from '~/components/atoms/login/TextBox.vue';
+import * as dayjs from 'dayjs';
 
 export default {
     components: { LoginTextBox },
+    setup() {
+        const now = dayjs().format('YYYY년 MM월 DD일');
+        return { now };
+    },
 };
 </script>
 
@@ -62,7 +67,7 @@ export default {
     align-items: center;
     justify-content: center;
 
-    padding-top: 4px;
+    padding-top: 1px;
 
     font-size: 1em;
 }
