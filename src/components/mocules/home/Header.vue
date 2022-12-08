@@ -14,17 +14,36 @@
             </span>
         </div>
         <HomeSearch />
-        <div class="header__filter">
-            <span class="header__filter__label">반경 10km 이내</span>
-        </div>
+        <!-- OVERLAYS MENU COMPONENT -->
+        <v-menu transition="slide-y-transition">
+            <template v-slot:activator="{ props }">
+                <v-btn color="primary" v-bind="props"> {{ label ? label : '반경 10km 이내' }} </v-btn>
+            </template>
+            <v-list>
+                <v-list-item v-for="(option, index) in filters" :key="index">
+                    <v-list-item-title @click="sendEvent(option)">{{ option }}</v-list-item-title>
+                </v-list-item>
+            </v-list>
+        </v-menu>
     </header>
 </template>
 
 <script>
 import HomeSearch from '~/components/atoms/home/Search.vue';
+import { ref } from '@vue/reactivity';
 
 export default {
     components: { HomeSearch },
+    setup() {
+        const label = ref('');
+        const filters = ['반경 10km 이내', '반경 20km 이내', '반경 30km 이내', '반경 40km 이내', '반경 50km 이내'];
+
+        const sendEvent = (value) => {
+            label.value = value;
+        };
+
+        return { label, filters, sendEvent };
+    },
 };
 </script>
 
@@ -67,7 +86,7 @@ export default {
         margin: 48px 0 16px;
 
         &__nickname {
-            font-family: 'Y_Spotlight';
+            font-family: 'LINESeedKR-Bd';
             font-size: 2rem;
         }
         &__title {
@@ -84,24 +103,19 @@ export default {
             }
         }
     }
-    &__filter {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+}
+.v-btn {
+    width: 100%;
+    height: 40px;
 
-        width: 100%;
-        height: 40px;
+    border-radius: 12px;
 
-        background-color: $color-pupple;
-        border-radius: 24px;
+    font-family: 'Pretendard-Regular' !important;
+    font-weight: 600;
 
-        margin-top: 16px;
-
-        &__label {
-            font-family: 'Pretendard-Regular';
-            font-weight: 700;
-            color: $color-white;
-        }
-    }
+    margin-top: 16px;
+}
+.v-list {
+    margin-top: 8px;
 }
 </style>
