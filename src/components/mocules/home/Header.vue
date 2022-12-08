@@ -14,6 +14,9 @@
             </span>
         </div>
         <HomeSearch />
+        <div class="header__filter">
+            <span class="header__filter__label">반경 10km 이내</span>
+        </div>
     </header>
 </template>
 
@@ -79,6 +82,25 @@ export default {
             &__image {
                 width: 32px;
             }
+        }
+    }
+    &__filter {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+        height: 40px;
+
+        background-color: $color-pupple;
+        border-radius: 24px;
+
+        margin-top: 16px;
+
+        &__label {
+            font-family: 'Pretendard-Regular';
+            font-weight: 700;
+            color: $color-white;
         }
     }
 }
