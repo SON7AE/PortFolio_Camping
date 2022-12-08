@@ -32,7 +32,7 @@ export default {
 
     width: 240px;
     min-width: 240px;
-    height: 258px;
+    height: 250px;
 
     padding: 0 10px;
 
@@ -69,11 +69,11 @@ export default {
         &__title {
             font-family: 'NanumSquareNeo-Variable';
             font-weight: 700;
-            font-size: 15px;
+            font-size: 14px;
         }
         &__location {
             font-family: 'LeferiPoint-WhiteObliqueA';
-            font-size: 12px;
+            font-size: 11px;
 
             i {
                 color: $color-pupple;
