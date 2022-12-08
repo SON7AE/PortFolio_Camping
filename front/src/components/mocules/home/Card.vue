@@ -3,17 +3,24 @@
         <i class="fa-solid fa-bookmark bookmark"></i>
         <img src="~/assets/images/Card1.jpg" alt="" class="card__image" />
         <div class="card__text-box">
-            <span class="card__text-box__title">(주)디노담양힐링파크 지점</span>
+            <span class="card__text-box__title">{{ card.sFacilityName }}</span>
             <span class="card__text-box__location">
                 <i class="fa-solid fa-location-dot"></i>
-                전남 담양군 봉산면 탄금길 9-26
+                {{ card.sFacilityAddress }}
             </span>
         </div>
     </RouterLink>
 </template>
 
 <script>
-export default {};
+export default {
+    props: {
+        card: {
+            type: Object,
+            required: false,
+        },
+    },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -23,9 +30,9 @@ export default {};
     display: flex;
     flex-direction: column;
 
-    width: 224px;
-    min-width: 224px;
-    height: 264px;
+    width: 240px;
+    min-width: 240px;
+    height: 258px;
 
     padding: 0 10px;
 
@@ -42,7 +49,7 @@ export default {};
 
     &__image {
         width: 100%;
-        height: 65%;
+        height: 70%;
 
         border-radius: 16px;
     }
@@ -53,7 +60,7 @@ export default {};
         justify-content: center;
 
         width: 100%;
-        height: 35%;
+        height: 30%;
 
         gap: 12px;
 
@@ -62,7 +69,7 @@ export default {};
         &__title {
             font-family: 'NanumSquareNeo-Variable';
             font-weight: 700;
-            font-size: 1em;
+            font-size: 15px;
         }
         &__location {
             font-family: 'LeferiPoint-WhiteObliqueA';

@@ -2,8 +2,7 @@
     <div class="contents">
         <HomeActivityFilter />
         <div class="contents__card-box">
-            <HomeCard />
-            <HomeCard />
+            <HomeCard v-for="item in aHomeCard" :key="item" :card="item" />
         </div>
     </div>
 </template>
@@ -12,7 +11,21 @@
 import HomeActivityFilter from '~/components/mocules/home/ActivityFilter.vue';
 import HomeCard from '~/components/mocules/home/Card.vue';
 
-export default { components: { HomeActivityFilter, HomeCard } };
+import { storeToRefs } from 'pinia';
+import { useStore } from '~/store/index';
+
+export default {
+    components: { HomeActivityFilter, HomeCard },
+    setup() {
+        const store = useStore();
+        store.FETCH_CAMPING_API();
+        const { aHomeCard } = storeToRefs(store);
+
+        return {
+            aHomeCard,
+        };
+    },
+};
 </script>
 
 <style lang="scss" scoped>

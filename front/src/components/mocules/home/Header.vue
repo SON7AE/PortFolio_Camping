@@ -108,7 +108,7 @@ export default {
     width: 100%;
     height: 40px;
 
-    border-radius: 12px;
+    border-radius: 24px;
 
     font-family: 'Pretendard-Regular' !important;
     font-weight: 600;
