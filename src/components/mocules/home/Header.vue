@@ -17,11 +17,11 @@
         <!-- OVERLAYS MENU COMPONENT -->
         <v-menu transition="slide-y-transition">
             <template v-slot:activator="{ props }">
-                <v-btn color="primary" v-bind="props"> {{ label ? label : '반경 10km 이내' }} </v-btn>
+                <v-btn color="primary" v-bind="props"> {{ label ? `반경 ${label}km 이내` : `반경 10km 이내` }} </v-btn>
             </template>
             <v-list>
-                <v-list-item v-for="(option, index) in filters" :key="index">
-                    <v-list-item-title @click="sendEvent(option)">{{ option }}</v-list-item-title>
+                <v-list-item v-for="(filter, index) in filters" :key="index">
+                    <v-list-item-title @click="sendEvent(filter)">반경 {{ filter }}km 이내</v-list-item-title>
                 </v-list-item>
             </v-list>
         </v-menu>
@@ -36,7 +36,7 @@ export default {
     components: { HomeSearch },
     setup() {
         const label = ref('');
-        const filters = ['반경 10km 이내', '반경 20km 이내', '반경 30km 이내', '반경 40km 이내', '반경 50km 이내'];
+        const filters = [10, 20, 30, 40, 50];
 
         const sendEvent = (value) => {
             label.value = value;
