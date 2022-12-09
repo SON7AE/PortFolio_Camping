@@ -18,7 +18,9 @@ export default {
     components: { HomeActivityFilter, HomeCard },
     setup() {
         const store = useStore();
-        store.FETCH_CAMPING_API();
+        const apiUrl = 'http://localhost:3000/api/camp';
+
+        store.FETCH_CAMPING_API(apiUrl);
         const { aHomeCard } = storeToRefs(store);
 
         return {

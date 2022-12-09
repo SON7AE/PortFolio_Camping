@@ -7,7 +7,13 @@ import KakaoMapApiKey from '~/config/kakaoMapKey.js';
 import { onMounted } from '@vue/runtime-core';
 
 export default {
-    setup() {
+    props: {
+        mapData: {
+            type: Object,
+            required: false,
+        },
+    },
+    setup(props) {
         onMounted(() => {
             // 카카오 디벨로퍼 API KEY
             const KAKAO_MAP_API_KEY = KakaoMapApiKey;
@@ -25,13 +31,13 @@ export default {
         const initMap = () => {
             const mapContainer = document.getElementById('map'); // 지도를 표시할 div
             const mapOption = {
-                center: new kakao.maps.LatLng(33.451475, 126.570528), // 지도의 중심좌표
+                center: new kakao.maps.LatLng(props.mapData.mapY, props.mapData.mapX), // 지도의 중심좌표
                 level: 3, // 지도의 확대 레벨
             };
             const map = new kakao.maps.Map(mapContainer, mapOption);
             // 지도에 마커를 표시합니다.
             const marker = new kakao.maps.Marker({
-                position: new kakao.maps.LatLng(33.451475, 126.570528), // 마커의 위치
+                position: new kakao.maps.LatLng(props.mapData.mapY, props.mapData.mapX), // 마커의 위치
             });
             // 마커가 지도 위에 표시되도록 설정합니다.
             marker.setMap(map);

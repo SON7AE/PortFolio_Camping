@@ -1,5 +1,5 @@
 <template>
-    <RouterLink to="/detail" class="card">
+    <RouterLink :to="`/detail/${card.id}`" class="card">
         <i class="fa-solid fa-bookmark bookmark"></i>
         <img :src="card.sFacilityImageUrl ? card.sFacilityImageUrl : 'src/assets/images/defaultImage.png'" alt="" class="card__image" />
         <div class="card__text-box">

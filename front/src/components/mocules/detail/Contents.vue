@@ -1,8 +1,8 @@
 <template>
     <div class="contents">
-        <span class="contents__title">(주)디노담양힐링파크 지점</span>
+        <span class="contents__title">{{ aDetailCard.sFacilityName }}</span>
         <div class="contents__detail-box">
-            <DetailCard v-for="card in cardList" :key="card.label" :card="card" />
+            <DetailCard v-for="card in aDetailCardList" :key="card.label" :card="card" />
         </div>
         <button class="contents__button" @click="sendEvent">업체 소개</button>
     </div>
@@ -12,35 +12,21 @@
 import DetailCard from '~/components/atoms/detail/Card.vue';
 import Button from '~/components/atoms/Button.vue';
 
+import { storeToRefs } from 'pinia';
+import { useStore } from '~/store/index';
+
 export default {
     components: { DetailCard, Button },
     setup(props, context) {
-        const cardList = [
-            {
-                label: '위치',
-                icon: 'fa-location-dot',
-                value: '전남 담양군 봉산면 탄금길 9-26',
-            },
-            {
-                label: '편의시설',
-                icon: 'fa-shop',
-                value: '글램핑, 수영장, 바베큐',
-            },
-            {
-                label: '반려견',
-                icon: 'fa-dog',
-                value: '가능',
-            },
-            {
-                label: '이용가능시간',
-                icon: 'fa-clock',
-                value: '봄, 여름, 가을, 겨울',
-            },
-        ];
+        const store = useStore();
+        store.FETCH_DETAIL_API();
+
+        const { aDetailCard, aDetailCardList } = storeToRefs(store);
+
         const sendEvent = () => {
             context.emit('open-overlay');
         };
-        return { cardList, sendEvent };
+        return { sendEvent, aDetailCard, aDetailCardList };
     },
 };
 </script>
