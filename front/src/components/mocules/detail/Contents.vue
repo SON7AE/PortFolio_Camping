@@ -15,16 +15,18 @@ import Button from '~/components/atoms/Button.vue';
 import { storeToRefs } from 'pinia';
 import { useStore } from '~/store/index';
 import { useRoute } from 'vue-router';
+import { onMounted } from '@vue/runtime-core';
 
 export default {
     components: { DetailCard, Button },
     setup(props, context) {
         const store = useStore();
         const route = useRoute();
-
-        store.FETCH_DETAIL_API(route.params.id);
-
         const { aDetailCard, aDetailCardList } = storeToRefs(store);
+
+        onMounted(() => {
+            store.FETCH_DETAIL_API(route.params.id);
+        });
 
         const sendEvent = () => {
             context.emit('open-overlay');
