@@ -14,12 +14,15 @@ import Button from '~/components/atoms/Button.vue';
 
 import { storeToRefs } from 'pinia';
 import { useStore } from '~/store/index';
+import { useRoute } from 'vue-router';
 
 export default {
     components: { DetailCard, Button },
     setup(props, context) {
         const store = useStore();
-        store.FETCH_DETAIL_API();
+        const route = useRoute();
+
+        store.FETCH_DETAIL_API(route.params.id);
 
         const { aDetailCard, aDetailCardList } = storeToRefs(store);
 

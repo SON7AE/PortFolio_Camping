@@ -20,7 +20,6 @@ export default {
             required: false,
         },
     },
-    setup() {},
 };
 </script>
 
@@ -33,7 +32,7 @@ export default {
 
     width: 240px;
     min-width: 240px;
-    height: 250px;
+    height: 260px;
 
     padding: 0 10px;
 
@@ -58,12 +57,12 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        justify-content: center;
 
         width: 100%;
         height: 30%;
 
         gap: 12px;
+        margin-top: 19px;
 
         color: $color-black;
 
@@ -74,7 +73,8 @@ export default {
         }
         &__location {
             font-family: 'LeferiPoint-WhiteObliqueA';
-            font-size: 11.5px;
+            font-size: 12px;
+            line-height: 1.2;
 
             i {
                 color: $color-pupple;

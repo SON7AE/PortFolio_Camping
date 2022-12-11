@@ -1,6 +1,10 @@
 <template>
     <header class="header">
-        <img :src="aDetailCard.sFacilityImageUrl" alt="" class="header__image" />
+        <img
+            :src="aDetailCard.sFacilityImageUrl ? aDetailCard.sFacilityImageUrl : 'src/assets/images/defaultImage.png'"
+            alt=""
+            class="header__image"
+        />
         <DetailIcon :theme="'orange'" :icon="'fa-arrow-left'" class="header__button" @click="pageLink" />
         <DetailIcon :theme="'red'" :icon="'fa-heart'" class="header__bookmark" />
     </header>
@@ -8,7 +12,7 @@
 
 <script>
 import DetailIcon from '~/components/atoms/detail/Icon.vue';
-import { useRouter } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import { storeToRefs } from 'pinia';
 import { useStore } from '~/store/index';
 
@@ -16,9 +20,11 @@ export default {
     components: { DetailIcon },
     setup() {
         const router = useRouter();
+        const route = useRoute();
         const store = useStore();
 
-        store.FETCH_DETAIL_API();
+        store.$reset();
+        store.FETCH_DETAIL_API(route.params.id);
         const { aDetailCard } = storeToRefs(store);
 
         const pageLink = () => {

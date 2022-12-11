@@ -2,7 +2,7 @@
     <div class="text-box">
         <span class="text-box__title">캠핑장 소개</span>
         <span class="text-box__desc">
-            {{ aDetailCard.sFacilityIntro }}
+            {{ aDetailCard.sFacilityIntro ? aDetailCard.sFacilityIntro : '소개 글이 없습니다.' }}
         </span>
         <span class="text-box__title">지도</span>
         <DetailMap :map-data="aDetailCardMap" />
@@ -14,12 +14,14 @@ import DetailMap from '~/components/atoms/detail/Map.vue';
 
 import { storeToRefs } from 'pinia';
 import { useStore } from '~/store/index';
+import { useRoute } from 'vue-router';
 
 export default {
     components: { DetailMap },
-    setup(props, context) {
+    setup() {
         const store = useStore();
-        store.FETCH_DETAIL_API();
+        const route = useRoute();
+        store.FETCH_DETAIL_API(route.params.id);
 
         const { aDetailCard, aDetailCardMap } = storeToRefs(store);
 

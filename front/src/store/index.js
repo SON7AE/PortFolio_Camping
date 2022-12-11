@@ -2,6 +2,7 @@ import { defineStore } from 'pinia';
 import axios from 'axios';
 
 export const useStore = defineStore('main', {
+    persist: true,
     state: () => ({
         aHomeCard: [],
         aDetailCard: {
@@ -64,9 +65,9 @@ export const useStore = defineStore('main', {
                 console.log(error.message);
             }
         },
-        async FETCH_DETAIL_API() {
+        async FETCH_DETAIL_API(props) {
             try {
-                const res = await axios.get(`http://localhost:3000/api/camp/detail/3397`);
+                const res = await axios.get(`http://localhost:3000/api/camp/detail/${props}`);
 
                 this.aDetailCard.sFacilityName = res.data.facltNm;
                 this.aDetailCard.sFacilityIntro = res.data.intro;
