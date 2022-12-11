@@ -2,7 +2,8 @@
     <div class="contents">
         <HomeActivityFilter />
         <div class="contents__card-box">
-            <HomeCard v-for="item in aHomeCard" :key="item" :card="item" />
+            <HomeCardSkeleton v-if="isLoading" />
+            <HomeCard v-else v-for="item in aHomeCard" :key="item" :card="item" />
         </div>
     </div>
 </template>
@@ -10,21 +11,30 @@
 <script>
 import HomeActivityFilter from '~/components/mocules/home/ActivityFilter.vue';
 import HomeCard from '~/components/mocules/home/Card.vue';
+import HomeCardSkeleton from '~/components/mocules/Skeleton.vue';
 
 import { storeToRefs } from 'pinia';
 import { useStore } from '~/store/index';
+import { onMounted, ref } from '@vue/runtime-core';
 
 export default {
-    components: { HomeActivityFilter, HomeCard },
+    components: { HomeActivityFilter, HomeCard, HomeCardSkeleton },
     setup() {
         const store = useStore();
         const apiUrl = 'http://localhost:3000/api/camp';
+        const isLoading = ref(true);
 
-        store.FETCH_CAMPING_API(apiUrl);
+        onMounted(() => {
+            isLoading;
+            store.FETCH_CAMPING_API(apiUrl);
+            isLoading.value = false;
+        });
+
         const { aHomeCard } = storeToRefs(store);
 
         return {
             aHomeCard,
+            isLoading,
         };
     },
 };

@@ -23,7 +23,6 @@ export default {
         const route = useRoute();
         const store = useStore();
 
-        store.$reset();
         store.FETCH_DETAIL_API(route.params.id);
         const { aDetailCard } = storeToRefs(store);
 
