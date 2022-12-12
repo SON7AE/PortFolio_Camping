@@ -3,7 +3,7 @@
         <HomeActivityFilter />
         <div class="contents__card-box">
             <HomeCardSkeleton v-if="isLoading" />
-            <HomeCard v-else v-for="item in aHomeCard" :key="item" :card="item" />
+            <HomeCard v-else v-for="item in filterData ? filterData : aHomeCard" :key="item" :card="item" />
         </div>
     </div>
 </template>
@@ -19,14 +19,19 @@ import { onMounted, ref } from '@vue/runtime-core';
 
 export default {
     components: { HomeActivityFilter, HomeCard, HomeCardSkeleton },
+    props: {
+        filterData: {
+            type: Array,
+            required: false,
+        },
+    },
     setup() {
         const store = useStore();
-        const apiUrl = 'http://localhost:3000/api/camp';
         const isLoading = ref(true);
 
         onMounted(() => {
             isLoading.value = true;
-            store.FETCH_CAMPING_API(apiUrl);
+            store.FETCH_CAMPING_API();
             isLoading.value = false;
         });
 

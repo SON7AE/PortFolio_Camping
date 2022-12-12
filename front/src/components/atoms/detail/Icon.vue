@@ -1,10 +1,6 @@
 <template>
     <div :data-size="size" class="icon">
         <i :data-theme="theme" :class="`fa-solid ${icon}`"></i>
-        <!-- <i class="fa-solid fa-clock"></i>
-        <i class="fa-solid fa-dog"></i>
-        <i class="fa-solid fa-shop"></i>
-        <i class="fa-solid fa-heart"></i> -->
     </div>
 </template>
 
@@ -47,6 +43,7 @@ export default {
 
     &[data-size='large'] {
         width: 40px;
+        min-width: 40px;
         height: 40px;
         border: 1px solid rgba($color-gray, 0.2);
     }

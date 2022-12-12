@@ -34,12 +34,13 @@ import { ref } from '@vue/reactivity';
 
 export default {
     components: { HomeSearch },
-    setup() {
+    setup(props, context) {
         const label = ref('');
         const filters = [10, 20, 30, 40, 50];
 
         const sendEvent = (value) => {
             label.value = value;
+            context.emit('send-radius', String(value) + '000');
         };
 
         return { label, filters, sendEvent };
