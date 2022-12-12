@@ -23,7 +23,7 @@ export default {
         const { aDetailCardContents } = storeToRefs(store);
 
         const pageLink = () => {
-            router.push('/home');
+            router.push('home');
         };
         return {
             pageLink,

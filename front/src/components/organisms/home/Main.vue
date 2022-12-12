@@ -1,7 +1,7 @@
 <template>
     <div class="main">
-        <HomeHeader @send-radius="sendEvent" />
-        <HomeContents :radius="radius" />
+        <HomeHeader />
+        <HomeContents />
         <HomeFooter />
     </div>
 </template>
@@ -11,19 +11,8 @@ import HomeHeader from '~/components/mocules/home/Header.vue';
 import HomeContents from '~/components/mocules/home/Contents.vue';
 import HomeFooter from '~/components/atoms/Footer.vue';
 
-import { ref } from '@vue/runtime-core';
-
 export default {
     components: { HomeHeader, HomeContents, HomeFooter },
-    setup() {
-        const radius = ref('');
-        const sendEvent = (value) => {
-            radius.value = String(value) + '000';
-            console.log(radius.value);
-        };
-
-        return { sendEvent, radius };
-    },
 };
 </script>
 

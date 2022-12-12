@@ -12,12 +12,12 @@ export default createRouter({
             component: Login,
         },
         {
-            path: '/home/:radius',
+            path: '/home',
             name: 'Home',
             component: Home,
         },
         {
-            path: '/:radius/detail/:id',
+            path: '/detail/:id',
             name: 'Detail',
             component: Detail,
         },

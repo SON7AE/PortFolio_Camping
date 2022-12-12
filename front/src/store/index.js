@@ -54,9 +54,9 @@ export const useStore = defineStore('main', {
         }),
     },
     actions: {
-        async FETCH_CAMPING_API(props) {
+        async FETCH_CAMPING_API() {
             try {
-                const res = await axios.get(`http://localhost:3000/api/camp/${props}`);
+                const res = await axios.get(`http://localhost:3000/api/camp`);
                 const data = res.data.item;
 
                 this.aHomeCard = data.map((item) => {
@@ -72,9 +72,9 @@ export const useStore = defineStore('main', {
                 console.log(error.message);
             }
         },
-        async FETCH_DETAIL_API(radius, id) {
+        async FETCH_DETAIL_API(props) {
             try {
-                const res = await axios.get(`http://localhost:3000/api/camp/${radius}/detail/${id}`);
+                const res = await axios.get(`http://localhost:3000/api/camp/detail/${props}`);
 
                 this.aDetailCard.sFacilityName = res.data.facltNm;
                 this.aDetailCard.sFacilityIntro = res.data.intro;

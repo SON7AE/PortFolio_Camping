@@ -19,19 +19,13 @@ import { onMounted, ref } from '@vue/runtime-core';
 
 export default {
     components: { HomeActivityFilter, HomeCard, HomeCardSkeleton },
-    props: {
-        radius: {
-            type: String,
-            required: false,
-        },
-    },
-    setup(props) {
+    setup() {
         const store = useStore();
         const isLoading = ref(true);
 
         onMounted(() => {
             isLoading.value = true;
-            store.FETCH_CAMPING_API(props.radius);
+            store.FETCH_CAMPING_API();
             isLoading.value = false;
         });
 

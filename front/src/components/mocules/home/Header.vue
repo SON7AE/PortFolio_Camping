@@ -40,7 +40,6 @@ export default {
 
         const sendEvent = (value) => {
             label.value = value;
-            context.emit('send-radius', value);
         };
 
         return { label, filters, sendEvent };
