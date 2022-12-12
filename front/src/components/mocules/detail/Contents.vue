@@ -22,7 +22,7 @@ export default {
         const store = useStore();
         const route = useRoute();
 
-        store.FETCH_DETAIL_API(route.params.radius, route.params.id);
+        store.FETCH_DETAIL_API(route.params.id);
         const { aDetailCardList, aDetailCardContents } = storeToRefs(store);
 
         const sendEvent = () => {
