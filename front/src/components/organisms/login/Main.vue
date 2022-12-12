@@ -22,7 +22,7 @@ import 'swiper/css/pagination';
 export default {
     components: { LoginHeader, Button, Swiper, SwiperSlide },
     setup() {
-        const path = 'home';
+        const path = 'home/10000';
         const seasons = ['fall', 'spring', 'summer', 'winter'];
 
         return {

@@ -1,5 +1,5 @@
 <template>
-    <RouterLink :to="`/detail/${card.id}`" class="card">
+    <RouterLink :to="`${router}/detail/${card.id}`" class="card">
         <i class="fa-solid fa-bookmark bookmark"></i>
         <img :src="card.sFacilityImageUrl ? card.sFacilityImageUrl : 'src/assets/images/defaultImage.png'" alt="" class="card__image" />
         <div class="card__text-box">
@@ -13,12 +13,18 @@
 </template>
 
 <script>
+import { useRoute } from 'vue-router';
 export default {
     props: {
         card: {
             type: Object,
             required: false,
         },
+    },
+    setup() {
+        const route = useRoute();
+        const router = route.params.radius;
+        return { router };
     },
 };
 </script>

@@ -19,7 +19,7 @@ export default {
         const route = useRoute();
         const store = useStore();
 
-        store.FETCH_DETAIL_API(route.params.id);
+        store.FETCH_DETAIL_API(route.params.radius, route.params.id);
         const { aDetailCardContents } = storeToRefs(store);
 
         const pageLink = () => {
