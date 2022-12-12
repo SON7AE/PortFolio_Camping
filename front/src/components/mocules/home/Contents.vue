@@ -3,7 +3,7 @@
         <HomeActivityFilter />
         <div class="contents__card-box">
             <HomeCardSkeleton v-if="isLoading" />
-            <HomeCard v-else v-for="item in filterData ? filterData : aHomeCard" :key="item" :card="item" />
+            <HomeCard v-else v-for="item in aHomeCard" :key="item" :card="item" />
         </div>
     </div>
 </template>
@@ -19,12 +19,7 @@ import { onMounted, ref } from '@vue/runtime-core';
 
 export default {
     components: { HomeActivityFilter, HomeCard, HomeCardSkeleton },
-    props: {
-        filterData: {
-            type: Array,
-            required: false,
-        },
-    },
+
     setup() {
         const store = useStore();
         const isLoading = ref(true);
