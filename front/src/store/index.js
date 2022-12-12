@@ -23,7 +23,7 @@ export const useStore = defineStore('main', {
             {
                 label: '위치',
                 icon: 'fa-location-dot',
-                value: state.aDetailCard.sFacilityName ? state.aDetailCard.sFacilityName : '등록되지 않았습니다.',
+                value: state.aDetailCard.sFacilityAddress ? state.aDetailCard.sFacilityAddress : '업체 위치가등록되지 않았습니다.',
             },
             {
                 label: '편의시설',
@@ -33,7 +33,7 @@ export const useStore = defineStore('main', {
             {
                 label: '반려견',
                 icon: 'fa-dog',
-                value: state.aDetailCard.sFacilityAnimal ? state.aDetailCard.sFacilityAnimal : '알 수 없음',
+                value: state.aDetailCard.sFacilityAnimal ? state.aDetailCard.sFacilityAnimal : '직접 문의해주시기 바랍니다.',
             },
             {
                 label: '이용가능시간',
@@ -41,6 +41,13 @@ export const useStore = defineStore('main', {
                 value: state.aDetailCard.sFacilityAvailableTime ? state.aDetailCard.sFacilityAvailableTime : '직접 문의해주시기 바랍니다.',
             },
         ],
+        aDetailCardContents: (state) => ({
+            sFacilityName: state.aDetailCard.sFacilityName ? state.aDetailCard.sFacilityName : '업체명이 등록되지 않았습니다.', // 캠핑장 이름
+            sFacilityIntro: state.aDetailCard.sFacilityIntro ? state.aDetailCard.sFacilityIntro : '업체소개가 등록되지 않았습니다.', // 캠핑장 소개
+            sFaciltyyMapX: state.aDetailCard.sFacilityAddress.sFaciltyyMapX, // 캠핑장 주소 X 좌표
+            sFaciltyyMapY: state.aDetailCard.sFacilityAddress.sFaciltyyMapY, // 캠핑장 주소 Y 좌표
+            sFacilityImageUrl: state.aDetailCard.sFacilityImageUrl ? state.aDetailCard.sFacilityImageUrl : 'src/assets/images/defaultImage.png', // 캠핑장 이미
+        }),
         aDetailCardMap: (state) => ({
             mapX: state.aDetailCard.sFaciltyyMapX,
             mapY: state.aDetailCard.sFaciltyyMapY,

@@ -1,6 +1,6 @@
 <template>
     <div class="contents">
-        <span class="contents__title">{{ aDetailCard.sFacilityName }}</span>
+        <span class="contents__title">{{ aDetailCardContents.sFacilityName }}</span>
         <div class="contents__detail-box">
             <DetailCard v-for="card in aDetailCardList" :key="card.label" :card="card" />
         </div>
@@ -15,23 +15,20 @@ import Button from '~/components/atoms/Button.vue';
 import { storeToRefs } from 'pinia';
 import { useStore } from '~/store/index';
 import { useRoute } from 'vue-router';
-import { onMounted } from '@vue/runtime-core';
 
 export default {
     components: { DetailCard, Button },
     setup(props, context) {
         const store = useStore();
         const route = useRoute();
-        const { aDetailCard, aDetailCardList } = storeToRefs(store);
 
-        onMounted(() => {
-            store.FETCH_DETAIL_API(route.params.id);
-        });
+        store.FETCH_DETAIL_API(route.params.id);
+        const { aDetailCardList, aDetailCardContents } = storeToRefs(store);
 
         const sendEvent = () => {
             context.emit('open-overlay');
         };
-        return { sendEvent, aDetailCard, aDetailCardList };
+        return { sendEvent, aDetailCardList, aDetailCardContents };
     },
 };
 </script>

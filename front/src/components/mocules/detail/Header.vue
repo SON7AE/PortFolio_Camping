@@ -1,10 +1,6 @@
 <template>
     <header class="header">
-        <img
-            :src="aDetailCard.sFacilityImageUrl ? aDetailCard.sFacilityImageUrl : 'src/assets/images/defaultImage.png'"
-            alt=""
-            class="header__image"
-        />
+        <img :src="aDetailCardContents.sFacilityImageUrl" alt="" class="header__image" />
         <DetailIcon :theme="'orange'" :icon="'fa-arrow-left'" class="header__button" @click="pageLink" />
         <DetailIcon :theme="'red'" :icon="'fa-heart'" class="header__bookmark" />
     </header>
@@ -24,15 +20,14 @@ export default {
         const store = useStore();
 
         store.FETCH_DETAIL_API(route.params.id);
-        const { aDetailCard } = storeToRefs(store);
+        const { aDetailCardContents } = storeToRefs(store);
 
         const pageLink = () => {
             router.push('/home');
         };
-
         return {
             pageLink,
-            aDetailCard,
+            aDetailCardContents,
         };
     },
 };

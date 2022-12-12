@@ -25,7 +25,7 @@ export default {
         const isLoading = ref(true);
 
         onMounted(() => {
-            isLoading;
+            isLoading.value = true;
             store.FETCH_CAMPING_API(apiUrl);
             isLoading.value = false;
         });

@@ -2,7 +2,7 @@
     <div class="text-box">
         <span class="text-box__title">캠핑장 소개</span>
         <span class="text-box__desc">
-            {{ aDetailCard.sFacilityIntro ? aDetailCard.sFacilityIntro : '소개 글이 없습니다.' }}
+            {{ aDetailCardContents.sFacilityIntro }}
         </span>
         <span class="text-box__title">지도</span>
         <DetailMap :map-data="aDetailCardMap" />
@@ -23,9 +23,9 @@ export default {
         const route = useRoute();
         store.FETCH_DETAIL_API(route.params.id);
 
-        const { aDetailCard, aDetailCardMap } = storeToRefs(store);
+        const { aDetailCardContents, aDetailCardMap } = storeToRefs(store);
 
-        return { aDetailCard, aDetailCardMap };
+        return { aDetailCardContents, aDetailCardMap };
     },
 };
 </script>
